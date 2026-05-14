@@ -1291,22 +1291,6 @@
         </div>
 
         <div class="field">
-          <label class="field-label" for="travelInsurance">Do you have travel insurance?</label>
-          <select id="travelInsurance" name="travelInsurance" class="field-select">
-            <option value="">Select...</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Need to obtain">Need to obtain</option>
-          </select>
-          <div class="conditional-field hidden" id="insuranceDetailsWrap">
-            <div class="field">
-              <label class="field-label" for="insuranceProvider">Insurance Provider &amp; Policy Number</label>
-              <input type="text" id="insuranceProvider" name="insuranceProvider" class="field-input" />
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
           <label class="field-label" for="additionalNotes">Anything else we should know?</label>
           <div class="field-subtitle">Special preferences, seating partners, hotel room requirements, etc.</div>
           <textarea id="additionalNotes" name="additionalNotes" class="field-textarea" rows="4"></textarea>
@@ -1412,7 +1396,6 @@
     showHide('hasVisa', 'visaDetailsWrap', ['Yes']);
     showHide('mealPreference', 'mealOtherWrap', ['Other']);
     showHide('specialAssistance', 'assistanceOtherWrap', ['Other']);
-    showHide('travelInsurance', 'insuranceDetailsWrap', ['Yes', 'Need to obtain']);
 
     // ===== FORM SUBMIT =====
     document.getElementById('profileForm').addEventListener('submit', async (e) => {
@@ -1469,8 +1452,6 @@
         { columnId: 5863480740843396, value: buildLoyalty(data['airlineProgram[]'], data['airlineNumber[]']) },
         { columnId: 5038883527233412, value: buildLoyalty(data['hotelProgram[]'], data['hotelNumber[]']) },
         { columnId: 2539752250445700, value: buildLoyalty(data['carProgram[]'], data['carNumber[]']) },
-        { columnId: 18204197162884,   value: v('travelInsurance') },
-        { columnId: 7911225718771588, value: v('insuranceProvider') },
         { columnId: 3361178704449412, value: [v('medicalConditions'), v('additionalNotes')].filter(Boolean).join('\n\n') },
         { columnId: 6418063158448004, value: today },
       ].filter(cell => cell.value !== '' && cell.value !== null && cell.value !== undefined);
