@@ -868,7 +868,7 @@
           </div>
         </div>
 
-        <div class="field-row-3">
+        <div class="field-row">
           <div class="field">
             <label class="field-label" for="gender">Gender<span class="required-mark">*</span></label>
             <select id="gender" name="gender" class="field-select" required>
@@ -883,10 +883,6 @@
           <div class="field">
             <label class="field-label" for="dateOfBirth">Date of Birth<span class="required-mark">*</span></label>
             <input type="date" id="dateOfBirth" name="dateOfBirth" class="field-input" required />
-          </div>
-          <div class="field">
-            <label class="field-label" for="nationality">Nationality<span class="required-mark">*</span></label>
-            <input type="text" id="nationality" name="nationality" class="field-input" placeholder="e.g. Canadian" required />
           </div>
         </div>
       </section>
@@ -988,8 +984,8 @@
 
         <div class="field-row">
           <div class="field">
-            <label class="field-label" for="passportNumber">Passport Number<span class="required-mark">*</span></label>
-            <input type="text" id="passportNumber" name="passportNumber" class="field-input" required />
+            <label class="field-label" for="nationality">Nationality<span class="required-mark">*</span></label>
+            <input type="text" id="nationality" name="nationality" class="field-input" placeholder="e.g. Canadian" required />
           </div>
           <div class="field">
             <label class="field-label" for="passportCountry">Country of Issue<span class="required-mark">*</span></label>
@@ -999,8 +995,8 @@
 
         <div class="field-row">
           <div class="field">
-            <label class="field-label" for="passportIssueDate">Date of Issue</label>
-            <input type="date" id="passportIssueDate" name="passportIssueDate" class="field-input" />
+            <label class="field-label" for="passportNumber">Passport Number<span class="required-mark">*</span></label>
+            <input type="text" id="passportNumber" name="passportNumber" class="field-input" required />
           </div>
           <div class="field">
             <label class="field-label" for="passportExpiry">Expiration Date<span class="required-mark">*</span></label>
@@ -1008,9 +1004,16 @@
           </div>
         </div>
 
-        <div class="field">
-          <label class="field-label" for="knownTraveler">Known Traveler Number (TSA PreCheck / Global Entry)</label>
-          <input type="text" id="knownTraveler" name="knownTraveler" class="field-input" />
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="passportIssueDate">Date of Issue</label>
+            <input type="date" id="passportIssueDate" name="passportIssueDate" class="field-input" />
+          </div>
+          <div class="field">
+            <label class="field-label" for="knownTraveler">Known Traveler Number</label>
+            <div class="field-subtitle">TSA PreCheck / Global Entry</div>
+            <input type="text" id="knownTraveler" name="knownTraveler" class="field-input" />
+          </div>
         </div>
 
         <div class="field">
