@@ -853,53 +853,32 @@
           <span class="section-tag">Identity</span>
         </div>
 
-        <div class="field-row-prefix">
-          <div class="field">
-            <label class="field-label" for="prefix">Prefix</label>
-            <select id="prefix" name="prefix" class="field-select">
-              <option value="">—</option>
-              <option value="Mr.">Mr.</option>
-              <option value="Mrs.">Mrs.</option>
-              <option value="Ms.">Ms.</option>
-              <option value="Miss">Miss</option>
-              <option value="Dr.">Dr.</option>
-              <option value="Prof.">Prof.</option>
-              <option value="Sir">Sir</option>
-              <option value="Dame">Dame</option>
-            </select>
-          </div>
+        <div class="field-row-3">
           <div class="field">
             <label class="field-label" for="firstName">First Name<span class="required-mark">*</span></label>
             <input type="text" id="firstName" name="firstName" class="field-input" required />
           </div>
-          <div class="field">
-            <label class="field-label" for="lastName">Last Name<span class="required-mark">*</span></label>
-            <input type="text" id="lastName" name="lastName" class="field-input" required />
-          </div>
-          <div class="field">
-            <label class="field-label" for="suffix">Suffix</label>
-            <select id="suffix" name="suffix" class="field-select">
-              <option value="">—</option>
-              <option value="Jr.">Jr.</option>
-              <option value="Sr.">Sr.</option>
-              <option value="II">II</option>
-              <option value="III">III</option>
-              <option value="IV">IV</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field-row">
           <div class="field">
             <label class="field-label" for="middleName">Middle Name</label>
             <div class="field-subtitle">As it appears on your government-issued ID</div>
             <input type="text" id="middleName" name="middleName" class="field-input" />
           </div>
           <div class="field">
-            <label class="field-label" for="preferredName">Preferred Name / Nickname</label>
-            <div class="field-subtitle">If different from your legal first name</div>
-            <input type="text" id="preferredName" name="preferredName" class="field-input" />
+            <label class="field-label" for="lastName">Last Name<span class="required-mark">*</span></label>
+            <input type="text" id="lastName" name="lastName" class="field-input" required />
           </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="suffix">Suffix</label>
+          <select id="suffix" name="suffix" class="field-select">
+            <option value="">—</option>
+            <option value="Jr.">Jr.</option>
+            <option value="Sr.">Sr.</option>
+            <option value="II">II</option>
+            <option value="III">III</option>
+            <option value="IV">IV</option>
+          </select>
         </div>
 
         <div class="field-row-3">
@@ -1005,19 +984,9 @@
             <input type="text" id="companyName" name="companyName" class="field-input" required />
           </div>
           <div class="field">
-            <label class="field-label" for="jobTitle">Job Title</label>
-            <input type="text" id="jobTitle" name="jobTitle" class="field-input" />
-          </div>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label class="field-label" for="department">Department</label>
-            <input type="text" id="department" name="department" class="field-input" />
-          </div>
-          <div class="field">
-            <label class="field-label" for="employeeId">Employee ID</label>
-            <input type="text" id="employeeId" name="employeeId" class="field-input" />
+            <label class="field-label" for="expenseAccount">Expense Account</label>
+            <div class="field-subtitle">If applicable</div>
+            <input type="text" id="expenseAccount" name="expenseAccount" class="field-input" />
           </div>
         </div>
       </section>
@@ -1087,6 +1056,8 @@
           <span class="section-tag">In the Air</span>
         </div>
 
+        <div class="field-subtitle" style="margin-bottom: 24px;">Please note these are requests only. We will do our best to accommodate your preferences however all are subject to availability and/or company guidelines.</div>
+
         <div class="field">
           <label class="field-label">Seat Preference</label>
           <div class="checkbox-grid">
@@ -1129,17 +1100,6 @@
               <span>No preference</span>
             </label>
           </div>
-        </div>
-
-        <div class="field">
-          <label class="field-label" for="cabinPreference">Preferred Cabin Class</label>
-          <select id="cabinPreference" name="cabinPreference" class="field-select">
-            <option value="">Select...</option>
-            <option value="Economy">Economy</option>
-            <option value="Premium Economy">Premium Economy</option>
-            <option value="Business Class">Business Class</option>
-            <option value="First Class">First Class</option>
-          </select>
         </div>
 
         <div class="field">
@@ -1209,90 +1169,18 @@
           <button type="button" class="add-btn" onclick="addLoyaltyRow('airlineLoyaltyList','airline')">+ Add Airline Program</button>
         </div>
 
-        <div class="field" style="margin-top: 36px;">
-          <label class="field-label">Hotel Loyalty Programs</label>
-          <div class="field-subtitle">Add all hotel loyalty memberships</div>
-          <div id="hotelLoyaltyList">
-            <div class="loyalty-row">
-              <input type="text" name="hotelProgram[]" class="field-input" placeholder="Hotel chain (e.g. Marriott Bonvoy)" />
-              <input type="text" name="hotelNumber[]" class="field-input" placeholder="Membership number" />
-              <button type="button" class="remove-btn" onclick="removeLoyaltyRow(this)">&times;</button>
-            </div>
-          </div>
-          <button type="button" class="add-btn" onclick="addLoyaltyRow('hotelLoyaltyList','hotel')">+ Add Hotel Program</button>
-        </div>
-
-        <div class="field" style="margin-top: 36px;">
-          <label class="field-label">Car Rental Loyalty Programs</label>
-          <div id="carLoyaltyList">
-            <div class="loyalty-row">
-              <input type="text" name="carProgram[]" class="field-input" placeholder="Rental company (e.g. Hertz Gold)" />
-              <input type="text" name="carNumber[]" class="field-input" placeholder="Membership number" />
-              <button type="button" class="remove-btn" onclick="removeLoyaltyRow(this)">&times;</button>
-            </div>
-          </div>
-          <button type="button" class="add-btn" onclick="addLoyaltyRow('carLoyaltyList','car')">+ Add Car Rental Program</button>
-        </div>
       </section>
 
-      <!-- SECTION 7: EMERGENCY CONTACT -->
+      <!-- SECTION 7: ADDITIONAL INFO -->
       <section class="section">
         <div class="section-header">
           <span class="section-number">VII.</span>
-          <h2 class="section-title">Emergency Contact</h2>
-          <span class="section-tag">In Case of Need</span>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label class="field-label" for="emergencyName">Full Name<span class="required-mark">*</span></label>
-            <input type="text" id="emergencyName" name="emergencyName" class="field-input" required />
-          </div>
-          <div class="field">
-            <label class="field-label" for="emergencyRelationship">Relationship<span class="required-mark">*</span></label>
-            <select id="emergencyRelationship" name="emergencyRelationship" class="field-select" required>
-              <option value="">Select...</option>
-              <option value="Spouse">Spouse</option>
-              <option value="Partner">Partner</option>
-              <option value="Parent">Parent</option>
-              <option value="Child">Child</option>
-              <option value="Sibling">Sibling</option>
-              <option value="Friend">Friend</option>
-              <option value="Colleague">Colleague</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label class="field-label" for="emergencyPhone">Phone Number<span class="required-mark">*</span></label>
-            <input type="tel" id="emergencyPhone" name="emergencyPhone" class="field-input" required />
-          </div>
-          <div class="field">
-            <label class="field-label" for="emergencyEmail">Email Address</label>
-            <input type="email" id="emergencyEmail" name="emergencyEmail" class="field-input" />
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 8: ADDITIONAL INFO -->
-      <section class="section">
-        <div class="section-header">
-          <span class="section-number">VIII.</span>
           <h2 class="section-title">Additional Information</h2>
           <span class="section-tag">Notes</span>
         </div>
 
         <div class="field">
-          <label class="field-label" for="medicalConditions">Medical Conditions / Allergies</label>
-          <div class="field-subtitle">Any conditions or allergies your travel manager should be aware of</div>
-          <textarea id="medicalConditions" name="medicalConditions" class="field-textarea" rows="3"></textarea>
-        </div>
-
-        <div class="field">
           <label class="field-label" for="additionalNotes">Anything else we should know?</label>
-          <div class="field-subtitle">Special preferences, seating partners, hotel room requirements, etc.</div>
           <textarea id="additionalNotes" name="additionalNotes" class="field-textarea" rows="4"></textarea>
         </div>
 
@@ -1309,7 +1197,7 @@
 
       <!-- FOOTER -->
       <div class="form-footer">
-        <p class="footer-message">Your profile will be securely stored and used exclusively for your Kensington travel arrangements. <strong>Please do not enter credit card numbers in this form.</strong></p>
+        <p class="footer-message">Your profile will be securely stored and used exclusively for your <strong>Kensington Corporate Group travel arrangements</strong>. <strong>Please do not enter credit card numbers in this form.</strong></p>
         <button type="submit" class="submit-btn">Submit Profile</button>
       </div>
 
@@ -1435,24 +1323,19 @@
         { columnId: 8817235648089988, value: v('nationality') },
         { columnId: 535283899862916,  value: v('email') },
         { columnId: 1378841380818820, value: v('phoneMobile') },
-        { columnId: 7685663163191172, value: v('emergencyName') },
-        { columnId: 7222725281353604, value: v('emergencyPhone') },
-        { columnId: 6215181251415940, value: v('emergencyRelationship') },
+        { columnId: 4695791137755012, value: v('expenseAccount') },
         { columnId: 5759087265746820, value: v('passportNumber') },
         { columnId: 6560810691497860, value: v('passportExpiry') || null },
         { columnId: 1462092745183108, value: v('passportCountry') },
         { columnId: 4824985565958020, value: v('knownTraveler') },
         { columnId: 8423354263703428, value: v('redressNumber') },
-        { columnId: 918918968676228,  value: v('cabinPreference') },
         { columnId: 7907097047240580, value: v('seatPreference') },
         { columnId: 7085501613117316, value: v('mealPreference') },
         { columnId: 154032135245700,  value: v('mealOther') },
         { columnId: 3221603407400836, value: v('specialAssistance') },
         { columnId: 5612978518134660, value: v('assistanceDetails') },
         { columnId: 5863480740843396, value: buildLoyalty(data['airlineProgram[]'], data['airlineNumber[]']) },
-        { columnId: 5038883527233412, value: buildLoyalty(data['hotelProgram[]'], data['hotelNumber[]']) },
-        { columnId: 2539752250445700, value: buildLoyalty(data['carProgram[]'], data['carNumber[]']) },
-        { columnId: 3361178704449412, value: [v('medicalConditions'), v('additionalNotes')].filter(Boolean).join('\n\n') },
+        { columnId: 3361178704449412, value: v('additionalNotes') },
         { columnId: 6418063158448004, value: today },
       ].filter(cell => cell.value !== '' && cell.value !== null && cell.value !== undefined);
 
