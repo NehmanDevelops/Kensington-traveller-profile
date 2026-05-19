@@ -7,7 +7,7 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const response = await fetch('https://api.smartsheet.com/2.0/sheets/5744310321368964/rows', {
+    const response = await fetch('https://api.smartsheet.com/2.0/sheets/298113280462724/rows', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.SMARTSHEET_API_TOKEN}`,
