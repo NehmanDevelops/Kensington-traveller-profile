@@ -1049,6 +1049,12 @@
         <div class="field-subtitle" style="margin-bottom: 24px;">Please note these are requests only. We will do our best to accommodate your preferences however all are subject to availability and/or company guidelines.</div>
 
         <div class="field">
+          <label class="field-label" for="departureCity">Departure City<span class="required-mark">*</span></label>
+          <div class="field-subtitle">The city you will be departing from for this trip</div>
+          <input type="text" id="departureCity" name="departureCity" class="field-input" required />
+        </div>
+
+        <div class="field">
           <label class="field-label">Seat Preference</label>
           <div class="checkbox-grid">
             <label class="checkbox-item">
@@ -1307,19 +1313,35 @@
       const cells = [
         { columnId: 2862616417701764, value: v('groupId') },
         { columnId: 7366216045072260, value: v('firstName') },
+        { columnId: 820513382633348,  value: v('middleName') },
         { columnId: 1736716510859140, value: v('lastName') },
         { columnId: 6240316138229636, value: v('dateOfBirth') || null },
         { columnId: 3988516324544388, value: v('gender') },
         { columnId: 8492115951914884, value: v('nationality') },
         { columnId: 329341627305860,  value: v('email') },
+        { columnId: 7785700769697668, value: v('emailAlt') },
         { columnId: 2581141440991108, value: v('phoneMobile') },
+        { columnId: 5732469239484292, value: v('phoneWork') },
+        { columnId: 6946165391396740, value: v('phoneHome') },
+        { columnId: 7369637758275460, value: v('addressLine1') },
+        { columnId: 7077917002862468, value: v('addressLine2') },
+        { columnId: 5067023112769412, value: v('city') },
+        { columnId: 5674826483404676, value: v('stateProvince') },
+        { columnId: 555192180576132,  value: v('postalCode') },
+        { columnId: 7928581983604612, value: v('country') },
+        { columnId: 5536271777959812, value: v('companyName') },
         { columnId: 4832941254676356, value: v('expenseAccount') },
         { columnId: 7084741068361604, value: v('passportNumber') },
         { columnId: 1455241534148484, value: v('passportExpiry') || null },
+        { columnId: 1493589921402756, value: v('passportIssueDate') || null },
         { columnId: 5958841161518980, value: v('passportCountry') },
         { columnId: 3707041347833732, value: v('knownTraveler') },
         { columnId: 892291580727172,  value: v('redressNumber') },
+        { columnId: 2936149848133508, value: v('hasVisa') },
+        { columnId: 6751222462975876, value: v('visaDetails') },
+        { columnId: 8572212360810372, value: v('departureCity') },
         { columnId: 5395891208097668, value: v('seatPreference') },
+        { columnId: 6321106721214340, value: v('seatLocation') },
         { columnId: 3144091394412420, value: v('mealPreference') },
         { columnId: 7647691021782916, value: v('mealOther') },
         { columnId: 2018191487569796, value: v('specialAssistance') },
