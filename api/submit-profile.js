@@ -57,6 +57,9 @@ module.exports = async function handler(req, res) {
 
     const today = new Date().toISOString().split('T')[0];
     const masterCells = [
+      { columnId: 5054810658475908, value: d.travellerType || '' },
+      { columnId: 2797347930410884, value: d.hostName || '' },
+      { columnId: 7970821628006276, value: d.expenseAccount || '' },
       { columnId: 5029597388509060, value: d.groupId || '' },
       { columnId: 6155241207926660, value: 'Traveller Profile Form' },
       { columnId: 5726513277472644, value: d.firstName || '' },
