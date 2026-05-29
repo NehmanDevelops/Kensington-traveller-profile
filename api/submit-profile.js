@@ -9,9 +9,8 @@ module.exports = async function handler(req, res) {
 
   try {
     // ── "Email me a copy" flag → Smartsheet checkbox column (Power Automate watches this) ──
-    // TODO: replace SEND_COPY_COL with the columnId of the "Send a copy" CHECKBOX
-    // column on the Traveller Profile sheet (298113280462724).
-    const SEND_COPY_COL = 0; // <-- put the real column ID here
+    // "Send a copy" CHECKBOX column on the Traveller Profile sheet (298113280462724).
+    const SEND_COPY_COL = 2130159334625156;
     const { sendCopy, ...payload } = req.body || {};
     if (sendCopy && SEND_COPY_COL) {
       payload.cells = payload.cells || [];
