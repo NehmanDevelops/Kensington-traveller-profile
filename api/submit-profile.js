@@ -8,13 +8,23 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
+    // ── "Email me a copy" flag → Smartsheet checkbox column (Power Automate watches this) ──
+    // TODO: replace SEND_COPY_COL with the columnId of the "Send a copy" CHECKBOX
+    // column on the Traveller Profile sheet (298113280462724).
+    const SEND_COPY_COL = 0; // <-- put the real column ID here
+    const { sendCopy, ...payload } = req.body || {};
+    if (sendCopy && SEND_COPY_COL) {
+      payload.cells = payload.cells || [];
+      payload.cells.push({ columnId: SEND_COPY_COL, value: true });
+    }
+
     const response = await fetch('https://api.smartsheet.com/2.0/sheets/298113280462724/rows', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.SMARTSHEET_API_TOKEN}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(req.body)
+      body: JSON.stringify(payload)
     });
 
     const data = await response.json();
@@ -25,7 +35,7 @@ module.exports = async function handler(req, res) {
 
     // ── Mirror to Traveller Profile MasterSheet ──
     const d = {};
-    const cells = req.body && (Array.isArray(req.body) ? req.body[0].cells : req.body.cells) || [];
+    const cells = (Array.isArray(payload) ? payload[0].cells : payload.cells) || [];
     const FORM_COL = {
       2862616417701764: 'groupId',
       7366216045072260: 'firstName',

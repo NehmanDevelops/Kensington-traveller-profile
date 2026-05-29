@@ -640,6 +640,45 @@
 
   .footer-message strong { color: var(--ink); font-style: normal; font-weight: 700; }
 
+  .email-copy-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+
+  .email-copy-row input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--ink-mute);
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .email-copy-row input[type="checkbox"]:checked {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .email-copy-row input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
   .submit-btn {
     display: inline-block;
     padding: 18px 56px;
@@ -1205,6 +1244,12 @@
       <!-- FOOTER -->
       <div class="form-footer">
         <p class="footer-message">Your profile will be securely stored and used exclusively for your Kensington <strong>Corporate Group</strong> travel arrangements. <strong>Please do not enter credit card numbers in this form.</strong></p>
+
+        <label class="email-copy-row">
+          <input type="checkbox" id="sendCopy" name="sendCopy" />
+          <span>Email me a copy of my responses</span>
+        </label>
+
         <button type="submit" class="submit-btn">Submit Profile</button>
       </div>
 
@@ -1378,7 +1423,7 @@
         const response = await fetch('/api/submit-profile', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ toTop: true, cells })
+          body: JSON.stringify({ toTop: true, cells, sendCopy: document.getElementById('sendCopy').checked })
         });
 
         if (!response.ok) {
