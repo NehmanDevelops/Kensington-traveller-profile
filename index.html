@@ -1357,6 +1357,21 @@
     document.getElementById('profileForm').addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      // ── Enforce required fields (form uses novalidate, so validate manually) ──
+      // Skips fields hidden inside collapsed conditional sections (e.g. host
+      // name only applies when "Guest" is selected).
+      const requiredFields = e.target.querySelectorAll('[required]');
+      for (const field of requiredFields) {
+        if (field.offsetParent === null) continue; // not visible — skip
+        const empty = field.type === 'checkbox' ? !field.checked : !String(field.value).trim();
+        if (empty) {
+          alert('Please complete all required fields (marked with *) before submitting.');
+          field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          try { field.focus({ preventScroll: true }); } catch (_) {}
+          return;
+        }
+      }
+
       const btn = e.target.querySelector('.submit-btn');
       btn.textContent = 'Submitting...';
       btn.disabled = true;
