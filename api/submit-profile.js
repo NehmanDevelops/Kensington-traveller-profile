@@ -116,7 +116,7 @@ module.exports = async function handler(req, res) {
         'Authorization': `Bearer ${process.env.SMARTSHEET_API_TOKEN}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify([{ toBottom: true, locked: true, cells: masterFinal }]) // bottom-append (was toTop) + locked so editors can't sort/move rows
+      body: JSON.stringify([{ toBottom: true, cells: masterFinal }]) // bottom-append (was toTop); row unlocked (column-level locks protect non-agent fields)
     }).catch(err => console.error('Master sheet write failed:', err.message));
 
     // ── Mirror into the KCG Agent copy ("Copy of Traveller Profile MasterSheet") ──
